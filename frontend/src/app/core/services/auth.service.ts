@@ -83,6 +83,27 @@ export class AuthService {
     }
   }
 
+  updateActiveMembershipStatus(status: import('../models').VerificationStatus, rejectionReason?: string | null): void {
+    const user = this.currentUser();
+    const active = this.activeMembership();
+    if (user && active) {
+      const updatedMemberships = (user.memberships || []).map(m => {
+        if (m.id === active.id) {
+          return { ...m, status, rejectionReason: rejectionReason || undefined };
+        }
+        return m;
+      });
+      const updatedUser = { ...user, memberships: updatedMemberships };
+      this.setUser(updatedUser);
+      const match = updatedMemberships.find(m => m.id === active.id) || null;
+      this.activeMembership.set(match);
+    }
+  }
+
+  refreshUser(): void {
+    this.loadStoredUser();
+  }
+
   private setUser(user: User | null): void {
     if (user && !user.name) {
       user.name = user.fullName;

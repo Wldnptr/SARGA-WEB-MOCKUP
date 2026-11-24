@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { AlertComponent } from '../../shared/alert/alert.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, AlertComponent],
+  imports: [CommonModule, FormsModule, RouterLink, AlertComponent],
   template: `
     <div class="auth-wrapper">
       <div class="auth-card">
@@ -54,6 +54,11 @@ import { AlertComponent } from '../../shared/alert/alert.component';
             {{ loading ? 'Memproses...' : 'Masuk' }}
           </button>
         </form>
+
+        <p class="auth-nav-note">
+          Belum punya akun? <a routerLink="/auth/register" class="link">Daftar di sini</a>.
+          Sudah mendaftar? <a routerLink="/status-akun" class="link">Lihat status akun</a>.
+        </p>
 
         <div class="demo-hints">
           <p class="hint-title">Akun Uji Coba Demo:</p>
@@ -136,6 +141,16 @@ import { AlertComponent } from '../../shared/alert/alert.component';
       width: 100%;
       padding: 0.75rem;
       margin-top: 0.5rem;
+    }
+    .auth-nav-note {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: var(--color-muted);
+      text-align: center;
+    }
+    .auth-nav-note .link {
+      color: var(--color-accent);
+      text-decoration: underline;
     }
     .demo-hints {
       margin-top: 2rem;

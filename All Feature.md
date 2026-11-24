@@ -108,20 +108,20 @@ Setiap tugas diformat dengan struktur standar di bawah ini agar rekan tim dapat 
   - **Berkas Terkait:** [item-create.component.ts](file:///c:/Users/KallKun/Desktop/Sarga%20DOC/WEB%20MOCKUP/frontend/src/app/features/items/item-create.component.ts)
   - **Catatan Teknis:** Penomoran otomatis kode alat, validasi durasi (1-14 hari), lokasi penyimpanan, parsing kelengkapan baris demi baris, dan upload foto.
 
-- [ ] **FE-WLD-08: Halaman Beranda Publik & Live Inventory Board (`#/beranda`)**
+- [x] **FE-WLD-08: Halaman Beranda Publik & Live Inventory Board (`#/beranda`)**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Dalam Pengerjaan`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-25
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/features/home/home.component.ts`
+  - **Tanggal Selesai:** 2026-11-24
+  - **Berkas Terkait:** [home.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/features/home/home.component.ts)
   - **Catatan Teknis:** Hero banner kontekstual, showcase kartu alat berstatus Tersedia di organisasi aktif, dan penjelasan 3 langkah pinjam.
 
-- [ ] **FE-WLD-09: Halaman Status Akun & Linimasa Pendaftaran (`#/status-akun`)**
+- [x] **FE-WLD-09: Halaman Status Akun & Linimasa Pendaftaran (`#/status-akun`)**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Belum Dimulai`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-26
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/features/auth/status-akun.component.ts`
+  - **Tanggal Selesai:** 2026-11-24
+  - **Berkas Terkait:** [status-akun.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/features/auth/status-akun.component.ts)
   - **Catatan Teknis:** Linimasa 3 tahap, banner kuning untuk status Menunggu, banner merah untuk Ditolak (disertai alasan transparan & tombol *Ajukan Ulang*), banner hijau untuk Aktif.
 
 - [ ] **FE-WLD-10: Formulir & Modal Gabung Organisasi Tambahan (`#/gabung`)**
