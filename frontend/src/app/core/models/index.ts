@@ -44,13 +44,13 @@ export interface Membership {
   role: Role;
   position: string;
   status: VerificationStatus;
+  joinedAt?: string;
   rejectionReason?: string;
   documentType?: string;
   documentUrl?: string;
   documentName?: string;
   documentNote?: string;
   address?: string;
-  joinedAt?: string;
   createdAt?: string;
   user?: {
     id: string;

@@ -13,7 +13,24 @@ export interface ItemListResponse {
 
 export interface ItemResponse {
   success: boolean;
-  item: Item;
+  item: Item & {
+    loans?: Array<{
+      id: string;
+      orgId: string;
+      itemId: string;
+      borrowerId: string;
+      ownerId?: string | null;
+      startDate: string;
+      endDate: string;
+      status: string;
+      purpose: string;
+      rejectionReason?: string;
+      returnConfirmedAt?: string;
+      createdAt?: string;
+      updatedAt?: string;
+      borrower?: { id: string; fullName: string; waNumber?: string };
+    }>;
+  };
   message?: string;
 }
 

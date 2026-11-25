@@ -84,14 +84,28 @@ import { StatusBadgeComponent } from '../../shared/status-badge/status-badge.com
               </div>
             </dl>
 
-            <div class="btn-row">
+            <div class="btn-row detail-actions">
+              <a
+                *ngIf="canRequestLoan"
+                class="btn-primary"
+                routerLink="/form-pengajuan"
+                [queryParams]="{ id: item.id }"
+              >
+                Ajukan pinjaman
+              </a>
+              <a *ngIf="isOwner" class="btn-secondary" routerLink="/barang-saya">
+                Kelola di Barang Saya
+              </a>
+              <a *ngIf="canEditItem" class="btn-secondary" [routerLink]="['/edit-barang', item.id]">
+                Ubah data barang
+              </a>
               <a *ngIf="ownerWhatsappUrl" class="action-link" [href]="ownerWhatsappUrl" target="_blank" rel="noopener noreferrer">
                 Hubungi pemilik
               </a>
-              <a *ngIf="canEditItem" class="btn-secondary btn-sm" [routerLink]="['/edit-barang', item.id]">
-                Ubah data barang
-              </a>
             </div>
+            <p *ngIf="!canRequestLoan && !isOwner && item.status !== 'TERSEDIA'" class="feature-note">
+              Barang ini sedang tidak tersedia untuk dipinjam saat ini.
+            </p>
           </section>
         </article>
 
@@ -241,8 +255,8 @@ import { StatusBadgeComponent } from '../../shared/status-badge/status-badge.com
 })
 export class ItemDetailComponent implements OnInit, OnDestroy {
   private readonly route = inject(ActivatedRoute);
-  private readonly itemService = inject(ItemService);
   private readonly authService = inject(AuthService);
+  private readonly itemService = inject(ItemService);
   private routeSubscription?: Subscription;
   private itemRequest?: Subscription;
 
@@ -252,6 +266,21 @@ export class ItemDetailComponent implements OnInit, OnDestroy {
   loading = false;
   errorMessage = '';
   errorStatus = 0;
+
+  get isOwner(): boolean {
+    const userId = this.authService.currentUser()?.id;
+    return !!this.item && !!userId && this.item.ownerId === userId;
+  }
+
+  get canRequestLoan(): boolean {
+    return (
+      !!this.item &&
+      this.item.status === 'TERSEDIA' &&
+      !this.itemService.isLocallyArchived(this.item.id) &&
+      !this.isOwner &&
+      this.authService.activeMembership()?.status === 'TERVERIFIKASI'
+    );
+  }
 
   ngOnInit(): void {
     this.routeSubscription = this.route.paramMap.subscribe(params => {

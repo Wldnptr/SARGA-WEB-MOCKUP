@@ -39,11 +39,39 @@
       >Katalog</a>
       <a
         *ngIf="authService.activeMembership()?.status === 'TERVERIFIKASI'"
+        routerLink="/pinjaman-saya"
+        routerLinkActive="active"
+        class="nav-item"
+        (click)="menuOpen = false"
+      >Pinjaman saya</a>
+      <a
+        *ngIf="authService.activeMembership()?.status === 'TERVERIFIKASI'"
+        routerLink="/barang-saya"
+        routerLinkActive="active"
+        class="nav-item"
+        (click)="menuOpen = false"
+      >Barang saya</a>
+      <a
+        *ngIf="authService.activeMembership()?.status === 'TERVERIFIKASI'"
         routerLink="/barang/tambah"
         routerLinkActive="active"
         class="nav-item"
         (click)="menuOpen = false"
       >Tambah barang</a>
+      <a
+        *ngIf="currentUser$ | async"
+        routerLink="/status-akun"
+        routerLinkActive="active"
+        class="nav-item"
+        (click)="menuOpen = false"
+      >Status akun</a>
+      <a
+        *ngIf="currentUser$ | async"
+        routerLink="/gabung"
+        routerLinkActive="active"
+        class="nav-item"
+        (click)="menuOpen = false"
+      >Gabung</a>
       <a
         *ngIf="authService.isAdmin() && authService.activeMembership()?.status === 'TERVERIFIKASI'"
         routerLink="/admin-monitoring"

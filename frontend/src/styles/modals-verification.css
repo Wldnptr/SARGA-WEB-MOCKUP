@@ -235,42 +235,6 @@
   display: block;
 }
 
-.timeline {
-  list-style: none;
-  display: grid;
-  gap: 0.85rem;
-  margin: 0.9rem 0 0;
-  padding: 0 0 0 1.25rem;
-  border-left: 2px solid var(--color-rule);
-}
-
-.timeline-item {
-  position: relative;
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -1.62rem;
-  top: 0.25rem;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--color-rule);
-  border: 2px solid var(--color-paper);
-}
-
-.timeline-item.done .timeline-dot {
-  background: var(--color-accent);
-}
-
-.timeline-item.current .timeline-dot {
-  background: var(--color-amber-ink);
-}
-
-.timeline-item.danger .timeline-dot {
-  background: var(--color-rose-ink);
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
