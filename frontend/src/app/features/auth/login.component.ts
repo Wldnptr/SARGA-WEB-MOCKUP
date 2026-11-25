@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { AlertComponent } from '../../shared/alert/alert.component';
+import { OtpModalComponent, OtpSubmitPayload } from '../../shared/otp-modal/otp-modal.component';
+import { ToastService } from '../../shared/toast/toast.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, AlertComponent],
+  imports: [CommonModule, FormsModule, RouterLink, AlertComponent, OtpModalComponent],
   template: `
     <div class="auth-wrapper">
       <div class="auth-card">
@@ -53,6 +55,13 @@ import { AlertComponent } from '../../shared/alert/alert.component';
           <button type="submit" [disabled]="loading" class="btn btn-primary btn-block">
             {{ loading ? 'Memproses...' : 'Masuk' }}
           </button>
+          <button
+            type="button"
+            (click)="openOtpModal()"
+            class="btn btn-secondary btn-block otp-trigger"
+          >
+            Masuk dengan kode OTP
+          </button>
         </form>
 
         <p class="auth-nav-note">
@@ -70,6 +79,15 @@ import { AlertComponent } from '../../shared/alert/alert.component';
           </div>
         </div>
       </div>
+
+      <app-otp-modal
+        [open]="otpModalOpen"
+        [initialWa]="waNumber || '081298765432'"
+        [serverMessage]="otpServerMessage"
+        [serverMessageKind]="otpServerKind"
+        (closed)="closeOtpModal()"
+        (otpSubmit)="onOtpSubmit($event)"
+      />
     </div>
   `,
   styles: [`
@@ -142,6 +160,9 @@ import { AlertComponent } from '../../shared/alert/alert.component';
       padding: 0.75rem;
       margin-top: 0.5rem;
     }
+    .otp-trigger {
+      margin-top: 0.55rem;
+    }
     .auth-nav-note {
       margin-top: 1rem;
       font-size: 0.82rem;
@@ -180,11 +201,16 @@ import { AlertComponent } from '../../shared/alert/alert.component';
 export class LoginComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
+  private toastService = inject(ToastService);
 
   waNumber = '';
   password = '';
   loading = false;
   errorMessage = '';
+
+  otpModalOpen = false;
+  otpServerMessage = '';
+  otpServerKind: 'info' | 'warning' | 'error' = 'info';
 
   onSubmit(): void {
     if (!this.waNumber || !this.password) {
@@ -210,5 +236,27 @@ export class LoginComponent {
   fillDemo(wa: string, pass: string): void {
     this.waNumber = wa;
     this.password = pass;
+  }
+
+  openOtpModal(): void {
+    this.otpServerMessage = '';
+    this.otpServerKind = 'info';
+    this.otpModalOpen = true;
+  }
+
+  closeOtpModal(): void {
+    this.otpModalOpen = false;
+    this.otpServerMessage = '';
+  }
+
+  onOtpSubmit(payload: OtpSubmitPayload): void {
+    this.waNumber = payload.waNumber;
+    this.otpServerKind = 'warning';
+    this.otpServerMessage =
+      'Layanan OTP WhatsApp di server segera hadir (API belum tersedia). Silakan gunakan kata sandi pada formulir Masuk.';
+    this.toastService.show(
+      'Layanan OTP WhatsApp segera hadir. Gunakan kata sandi untuk masuk.',
+      'info'
+    );
   }
 }

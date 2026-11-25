@@ -51,6 +51,13 @@
         class="nav-item"
         (click)="menuOpen = false"
       >Status akun</a>
+      <a
+        *ngIf="currentUser$ | async"
+        routerLink="/gabung"
+        routerLinkActive="active"
+        class="nav-item"
+        (click)="menuOpen = false"
+      >Gabung</a>
 
       <ng-container *ngIf="currentUser$ | async as user; else guestActions">
         <label class="organization-picker" *ngIf="user.memberships?.length; else noOrganization">

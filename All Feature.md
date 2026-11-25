@@ -124,20 +124,20 @@ Setiap tugas diformat dengan struktur standar di bawah ini agar rekan tim dapat 
   - **Berkas Terkait:** [status-akun.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/features/auth/status-akun.component.ts)
   - **Catatan Teknis:** Linimasa 3 tahap, banner kuning untuk status Menunggu, banner merah untuk Ditolak (disertai alasan transparan & tombol *Ajukan Ulang*), banner hijau untuk Aktif.
 
-- [ ] **FE-WLD-10: Formulir & Modal Gabung Organisasi Tambahan (`#/gabung`)**
+- [x] **FE-WLD-10: Formulir & Modal Gabung Organisasi Tambahan (`#/gabung`)**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Belum Dimulai`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-26
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/features/auth/gabung.component.ts`
+  - **Tanggal Selesai:** 2026-11-25
+  - **Berkas Terkait:** [gabung.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/features/auth/gabung.component.ts)
   - **Catatan Teknis:** Modal kirim data diri dan foto identitas ke organisasi lain menggunakan kode undangan baru tanpa input kata sandi baru.
 
-- [ ] **FE-WLD-11: Modal Masuk Cepat dengan Kode OTP WhatsApp**
+- [x] **FE-WLD-11: Modal Masuk Cepat dengan Kode OTP WhatsApp**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Belum Dimulai`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-27
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/shared/otp-modal/otp-modal.component.ts`
+  - **Tanggal Selesai:** 2026-11-25
+  - **Berkas Terkait:** [otp-modal.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/shared/otp-modal/otp-modal.component.ts)
   - **Catatan Teknis:** Dialog input 6 angka verifikasi OTP WhatsApp sebagai alternatif login tanpa kata sandi.
 
 - [ ] **FE-WLD-12: Halaman Formulir Pengajuan Pinjaman & Validasi Tanggal (`#/form-pengajuan`)**

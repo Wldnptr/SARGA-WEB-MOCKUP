@@ -44,6 +44,7 @@ export interface Membership {
   role: Role;
   position: string;
   status: VerificationStatus;
+  joinedAt?: string;
   rejectionReason?: string;
   documentType?: string;
   documentUrl?: string;

@@ -30,9 +30,9 @@ import { Item } from '../../core/models';
             </a>
             <a
               class="btn-secondary"
-              [routerLink]="currentUser() ? '/status-akun' : '/auth/login'"
+              [routerLink]="currentUser() ? '/gabung' : '/auth/login'"
             >
-              {{ currentUser() ? 'Cek status akun' : 'Masuk ke akun' }}
+              {{ currentUser() ? 'Gabung organisasi lain' : 'Masuk ke akun' }}
             </a>
           </div>
           <p class="hero-note">

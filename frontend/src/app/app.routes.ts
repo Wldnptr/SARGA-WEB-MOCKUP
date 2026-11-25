@@ -5,6 +5,7 @@ import { ItemDetailComponent } from './features/catalog/item-detail.component';
 import { LoginComponent } from './features/auth/login.component';
 import { RegisterComponent } from './features/auth/register.component';
 import { StatusAkunComponent } from './features/auth/status-akun.component';
+import { GabungComponent } from './features/auth/gabung.component';
 import { ItemCreateComponent } from './features/items/item-create.component';
 import { authGuard } from './core/guards/auth.guard';
 
@@ -48,6 +49,14 @@ export const routes: Routes = [
   {
     path: 'auth/status-akun',
     redirectTo: 'status-akun'
+  },
+  {
+    path: 'gabung',
+    component: GabungComponent
+  },
+  {
+    path: 'auth/gabung',
+    redirectTo: 'gabung'
   },
   {
     path: 'barang/tambah',
