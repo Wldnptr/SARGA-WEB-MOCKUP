@@ -323,6 +323,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     const orgId = org?.id;
     return this.items()
       .filter(item => {
+        if (this.itemService.isLocallyArchived(item.id)) return false;
         const isAvailable = item.status === 'TERSEDIA' || (item.status as string) === 'Tersedia';
         if (!isAvailable) return false;
         if (orgId) {
@@ -371,17 +372,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   imageSource(item: Item): string {
     const src = item.imageUrl || item.image;
-    if (!src) return 'assets/img/placeholder-item.svg';
-    if (src.startsWith('img/')) {
-      return 'assets/' + src;
-    }
+    if (!src || src === 'assets/placeholder-item.svg') return '/img/placeholder-item.svg';
+    if (src.startsWith('assets/')) return '/' + src.slice('assets/'.length);
+    if (src.startsWith('img/')) return '/' + src;
     return src;
   }
 
   handleImageError(event: Event): void {
     const img = event.target as HTMLImageElement;
     if (img && !img.src.includes('placeholder-item.svg')) {
-      img.src = 'assets/img/placeholder-item.svg';
+      img.src = '/img/placeholder-item.svg';
     }
   }
 }

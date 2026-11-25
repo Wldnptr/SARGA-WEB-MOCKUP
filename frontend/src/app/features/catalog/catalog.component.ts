@@ -282,7 +282,7 @@ export class CatalogComponent implements OnInit, OnDestroy {
     this.errorStatus = 0;
     this.itemsRequest = this.itemService.getItems({ search: this.searchQuery.trim() }).subscribe({
       next: (res) => {
-        this.items = res.items;
+        this.items = (res.items || []).filter(item => !this.itemService.isLocallyArchived(item.id));
         this.loading = false;
       },
       error: (error: HttpErrorResponse) => {

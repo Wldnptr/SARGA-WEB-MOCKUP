@@ -514,7 +514,7 @@ export class GabungComponent implements OnDestroy {
     waNumber: '',
     address: '',
     documentType: 'Kartu Tanda Anggota (KTA)',
-    documentUrl: 'assets/img/sample-kartu-anggota.svg',
+    documentUrl: '/img/sample-kartu-anggota.svg',
     documentName: 'Kartu_Anggota_Calon.svg',
     documentNote: '',
     docStatusTag: 'Dokumen Siap Dikirim'
@@ -579,7 +579,7 @@ export class GabungComponent implements OnDestroy {
       waNumber: user.waNumber || '',
       address: user.address || '',
       documentType: 'Kartu Tanda Anggota (KTA)',
-      documentUrl: this.resolveDocImg(existingDoc?.documentUrl) || 'assets/img/sample-kartu-anggota.svg',
+      documentUrl: this.resolveDocImg(existingDoc?.documentUrl) || '/img/sample-kartu-anggota.svg',
       documentName: existingDoc?.documentName || 'Kartu_Anggota_Calon.svg',
       documentNote: '',
       docStatusTag: 'Dokumen Siap Dikirim'
@@ -613,13 +613,13 @@ export class GabungComponent implements OnDestroy {
       };
       reader.readAsDataURL(file);
     } else {
-      this.joinForm.documentUrl = 'assets/img/sample-kartu-anggota.svg';
+      this.joinForm.documentUrl = '/img/sample-kartu-anggota.svg';
     }
   }
 
   useSampleKta(): void {
     this.joinForm.documentType = 'Kartu Tanda Anggota (KTA)';
-    this.joinForm.documentUrl = 'assets/img/sample-kartu-anggota.svg';
+    this.joinForm.documentUrl = '/img/sample-kartu-anggota.svg';
     this.joinForm.documentName = 'Kartu_Anggota_KGI_Demo.svg';
     this.joinForm.docStatusTag = 'KTA Demo Dipilih';
     this.toastService.show('KTA Demo Terpilih: Contoh Kartu Anggota siap dikirim.', 'info');
@@ -627,7 +627,7 @@ export class GabungComponent implements OnDestroy {
 
   useSampleKtp(): void {
     this.joinForm.documentType = 'KTP (Kartu Tanda Penduduk)';
-    this.joinForm.documentUrl = 'assets/img/sample-ktp.svg';
+    this.joinForm.documentUrl = '/img/sample-ktp.svg';
     this.joinForm.documentName = 'KTP_Agus_Setiawan_Demo.svg';
     this.joinForm.docStatusTag = 'KTP Demo Dipilih';
     this.toastService.show('KTP Demo Terpilih: Contoh KTP siap dikirim.', 'info');
@@ -777,15 +777,16 @@ export class GabungComponent implements OnDestroy {
   }
 
   resolveDocImg(url?: string): string {
-    if (!url) return 'assets/img/sample-kartu-anggota.svg';
-    if (url.startsWith('img/')) return 'assets/' + url;
+    if (!url) return '/img/sample-kartu-anggota.svg';
+    if (url.startsWith('assets/')) return '/' + url.slice('assets/'.length);
+    if (url.startsWith('img/')) return '/' + url;
     return url;
   }
 
   handleImageFallback(event: Event): void {
     const img = event.target as HTMLImageElement;
     if (img && !img.src.includes('sample-kartu-anggota.svg')) {
-      img.src = 'assets/img/sample-kartu-anggota.svg';
+      img.src = '/img/sample-kartu-anggota.svg';
     }
   }
 

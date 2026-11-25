@@ -534,9 +534,10 @@ export class StatusAkunComponent {
   documentImage = computed(() => {
     const url = this.activeMembership()?.documentUrl;
     if (url && url.startsWith('http')) return url;
-    if (url && url.startsWith('img/')) return 'assets/' + url;
+    if (url && url.startsWith('assets/')) return '/' + url.slice('assets/'.length);
+    if (url && url.startsWith('img/')) return '/' + url;
     if (url) return url;
-    return 'assets/img/sample-ktp.svg';
+    return '/img/sample-ktp.svg';
   });
 
   otherMemberships = computed(() => {
@@ -585,7 +586,7 @@ export class StatusAkunComponent {
   handleDocImageError(event: Event): void {
     const img = event.target as HTMLImageElement;
     if (img && !img.src.includes('sample-ktp.svg')) {
-      img.src = 'assets/img/sample-ktp.svg';
+      img.src = '/img/sample-ktp.svg';
     }
   }
 }

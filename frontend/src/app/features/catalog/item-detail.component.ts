@@ -4,6 +4,7 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Item } from '../../core/models';
+import { AuthService } from '../../core/services/auth.service';
 import { ItemService } from '../../core/services/item.service';
 import { AlertComponent } from '../../shared/alert/alert.component';
 import { StatusBadgeComponent } from '../../shared/status-badge/status-badge.component';
@@ -82,10 +83,25 @@ import { StatusBadgeComponent } from '../../shared/status-badge/status-badge.com
             </div>
           </dl>
 
-          <a *ngIf="ownerWhatsappUrl" class="action-link" [href]="ownerWhatsappUrl" target="_blank" rel="noopener noreferrer">
-            Hubungi pemilik
-          </a>
-          <p class="feature-note">Pengajuan pinjaman belum tersedia saat ini.</p>
+          <div class="btn-row detail-actions">
+            <a
+              *ngIf="canRequestLoan"
+              class="btn-primary"
+              routerLink="/form-pengajuan"
+              [queryParams]="{ id: item.id }"
+            >
+              Ajukan pinjaman
+            </a>
+            <a *ngIf="isOwner" class="btn-secondary" routerLink="/barang-saya">
+              Kelola di Barang Saya
+            </a>
+            <a *ngIf="ownerWhatsappUrl" class="action-link" [href]="ownerWhatsappUrl" target="_blank" rel="noopener noreferrer">
+              Hubungi pemilik
+            </a>
+          </div>
+          <p *ngIf="!canRequestLoan && !isOwner && item.status !== 'TERSEDIA'" class="feature-note">
+            Barang ini sedang tidak tersedia untuk dipinjam saat ini.
+          </p>
         </section>
       </article>
     </div>
@@ -203,6 +219,7 @@ import { StatusBadgeComponent } from '../../shared/status-badge/status-badge.com
 })
 export class ItemDetailComponent implements OnInit, OnDestroy {
   private readonly route = inject(ActivatedRoute);
+  private readonly authService = inject(AuthService);
   private readonly itemService = inject(ItemService);
   private routeSubscription?: Subscription;
   private itemRequest?: Subscription;
@@ -213,6 +230,21 @@ export class ItemDetailComponent implements OnInit, OnDestroy {
   loading = false;
   errorMessage = '';
   errorStatus = 0;
+
+  get isOwner(): boolean {
+    const userId = this.authService.currentUser()?.id;
+    return !!this.item && !!userId && this.item.ownerId === userId;
+  }
+
+  get canRequestLoan(): boolean {
+    return (
+      !!this.item &&
+      this.item.status === 'TERSEDIA' &&
+      !this.itemService.isLocallyArchived(this.item.id) &&
+      !this.isOwner &&
+      this.authService.activeMembership()?.status === 'TERVERIFIKASI'
+    );
+  }
 
   ngOnInit(): void {
     this.routeSubscription = this.route.paramMap.subscribe(params => {
