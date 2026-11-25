@@ -108,68 +108,68 @@ Setiap tugas diformat dengan struktur standar di bawah ini agar rekan tim dapat 
   - **Berkas Terkait:** [item-create.component.ts](file:///c:/Users/KallKun/Desktop/Sarga%20DOC/WEB%20MOCKUP/frontend/src/app/features/items/item-create.component.ts)
   - **Catatan Teknis:** Penomoran otomatis kode alat, validasi durasi (1-14 hari), lokasi penyimpanan, parsing kelengkapan baris demi baris, dan upload foto.
 
-- [ ] **FE-WLD-08: Halaman Beranda Publik & Live Inventory Board (`#/beranda`)**
+- [x] **FE-WLD-08: Halaman Beranda Publik & Live Inventory Board (`#/beranda`)**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Dalam Pengerjaan`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-25
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/features/home/home.component.ts`
+  - **Tanggal Selesai:** 2026-11-24
+  - **Berkas Terkait:** [home.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/features/home/home.component.ts)
   - **Catatan Teknis:** Hero banner kontekstual, showcase kartu alat berstatus Tersedia di organisasi aktif, dan penjelasan 3 langkah pinjam.
 
-- [ ] **FE-WLD-09: Halaman Status Akun & Linimasa Pendaftaran (`#/status-akun`)**
+- [x] **FE-WLD-09: Halaman Status Akun & Linimasa Pendaftaran (`#/status-akun`)**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Belum Dimulai`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-26
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/features/auth/status-akun.component.ts`
+  - **Tanggal Selesai:** 2026-11-24
+  - **Berkas Terkait:** [status-akun.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/features/auth/status-akun.component.ts)
   - **Catatan Teknis:** Linimasa 3 tahap, banner kuning untuk status Menunggu, banner merah untuk Ditolak (disertai alasan transparan & tombol *Ajukan Ulang*), banner hijau untuk Aktif.
 
-- [ ] **FE-WLD-10: Formulir & Modal Gabung Organisasi Tambahan (`#/gabung`)**
+- [x] **FE-WLD-10: Formulir & Modal Gabung Organisasi Tambahan (`#/gabung`)**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Belum Dimulai`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-26
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/features/auth/gabung.component.ts`
+  - **Tanggal Selesai:** 2026-11-25
+  - **Berkas Terkait:** [gabung.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/features/auth/gabung.component.ts)
   - **Catatan Teknis:** Modal kirim data diri dan foto identitas ke organisasi lain menggunakan kode undangan baru tanpa input kata sandi baru.
 
-- [ ] **FE-WLD-11: Modal Masuk Cepat dengan Kode OTP WhatsApp**
+- [x] **FE-WLD-11: Modal Masuk Cepat dengan Kode OTP WhatsApp**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Belum Dimulai`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-27
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/shared/otp-modal/otp-modal.component.ts`
+  - **Tanggal Selesai:** 2026-11-25
+  - **Berkas Terkait:** [otp-modal.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/shared/otp-modal/otp-modal.component.ts)
   - **Catatan Teknis:** Dialog input 6 angka verifikasi OTP WhatsApp sebagai alternatif login tanpa kata sandi.
 
-- [ ] **FE-WLD-12: Halaman Formulir Pengajuan Pinjaman & Validasi Tanggal (`#/form-pengajuan`)**
+- [x] **FE-WLD-12: Halaman Formulir Pengajuan Pinjaman & Validasi Tanggal (`#/form-pengajuan`)**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Belum Dimulai`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-27
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/features/loans/loan-request.component.ts`
+  - **Tanggal Selesai:** 2026-11-25
+  - **Berkas Terkait:** [loan-request.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/features/loans/loan-request.component.ts)
   - **Catatan Teknis:** Pemilihan rentang tanggal, validasi `maxDays`, validasi tanggal tidak boleh lampau, input keperluan, dan proteksi meminjam alat milik sendiri.
 
-- [ ] **FE-WLD-13: Halaman "Pinjaman Saya" & Tab Filter Status (`#/pinjaman-saya`)**
+- [x] **FE-WLD-13: Halaman "Pinjaman Saya" & Tab Filter Status (`#/pinjaman-saya`)**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Belum Dimulai`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-28
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/features/loans/my-loans.component.ts`
+  - **Tanggal Selesai:** 2026-11-25
+  - **Berkas Terkait:** [my-loans.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/features/loans/my-loans.component.ts)
   - **Catatan Teknis:** Tab filter status (Semua, Menunggu, Aktif, Selesai, Ditolak, Dibatalkan), badge keterlambatan (*overdue*), dan tombol batalkan pengajuan mandiri.
 
-- [ ] **FE-WLD-14: Modal Dialog Rincian Transaksi & Linimasa Jejak Audit (`openLoanModal`)**
+- [x] **FE-WLD-14: Modal Dialog Rincian Transaksi & Linimasa Jejak Audit (`openLoanModal`)**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Belum Dimulai`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-28
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/shared/loan-modal/loan-modal.component.ts`
+  - **Tanggal Selesai:** 2026-11-25
+  - **Berkas Terkait:** [loan-modal.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/shared/loan-modal/loan-modal.component.ts)
   - **Catatan Teknis:** Linimasa audit transaksi (pengajuan $\rightarrow$ persetujuan $\rightarrow$ pengembalian), serta tombol aksi dinamis (*Setujui*, *Tolak*, *Kembalikan*).
 
-- [ ] **FE-WLD-15: Dashboard "Barang Saya" & Kotak Permintaan Masuk (`#/barang-saya`)**
+- [x] **FE-WLD-15: Dashboard "Barang Saya" & Kotak Permintaan Masuk (`#/barang-saya`)**
   - **Assignee / PIC:** Wildan (FE)
-  - **Status:** `Belum Dimulai`
+  - **Status:** `Selesai`
   - **Target Selesai:** 2026-11-29
-  - **Tanggal Selesai:** -
-  - **Berkas Terkait:** `frontend/src/app/features/items/my-items.component.ts`
+  - **Tanggal Selesai:** 2026-11-25
+  - **Berkas Terkait:** [my-items.component.ts](file:///c:/Users/wilda/SARGA-WEB-MOCKUP/frontend/src/app/features/items/my-items.component.ts)
   - **Catatan Teknis:** Daftar alat pribadi, penanganan permohonan pinjaman masuk dari anggota lain, aksi setujui/tolak langsung, serta fitur tarik/arsipkan barang (`archive-item` & `restore-item`).
 
 - [ ] **FE-WLD-16: Halaman Ubah Data Barang (`#/edit-barang`)**

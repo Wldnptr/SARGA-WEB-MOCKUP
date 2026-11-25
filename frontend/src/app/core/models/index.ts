@@ -44,6 +44,7 @@ export interface Membership {
   role: Role;
   position: string;
   status: VerificationStatus;
+  joinedAt?: string;
   rejectionReason?: string;
   documentType?: string;
   documentUrl?: string;
@@ -88,6 +89,12 @@ export interface LoanTransaction {
   status: LoanStatus;
   purpose: string;
   rejectionReason?: string;
+  returnConfirmedAt?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  isOverdue?: boolean;
+  daysOverdue?: number;
   item?: Item;
   borrower?: { id: string; fullName: string; waNumber: string };
+  owner?: { id: string; fullName: string; waNumber: string } | null;
 }
